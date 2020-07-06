@@ -1,0 +1,537 @@
+@font-face {
+  src: url("fonts/Brusher.ttf");
+  font-family: 'brusher';
+}
+
+@font-face {
+  src: url("fonts/edosz.ttf");
+  font-family: 'edosz';
+}
+
+/* ==========================================================================
+   1. CSS Reset Code
+   ========================================================================== */
+/* 1.1. Eric Meyers Reset
+   http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+   ========================================================================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
+ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
+figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* Force scrollbar */
+html {
+  overflow-y: scroll;
+  background: url('./images/chai.jpg') 50% 50% no-repeat;
+  background-size: cover;
+}
+
+/* Align radios and text inputs with their label */
+input[type='radio'] {
+  vertical-align: text-bottom;
+}
+
+/* Hand cursor on clickable input elements */
+label,
+input[type='button'],
+input[type='submit'],
+button {
+  cursor: pointer;
+}
+
+strong {
+  font-weight: bold;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+em {
+  font-style: italic;
+}
+
+img {
+  width: 100%;
+  border: 0;
+  vertical-align: middle;
+}
+
+sub,
+sup {
+  vertical-align: baseline;
+  position: relative;
+  font-size: 55%;
+  line-height: 0;
+}
+
+sup {
+  top: -.7em;
+}
+
+sub {
+  bottom: -.25em;
+}
+
+/* 1.2. Clear Fix
+   ========================== */
+.cf:before,
+.cf:after {
+  display: table;
+  content: " ";
+}
+
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  *zoom: 1;
+}
+
+/*for all*/
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: 'Montserrat';
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+/*for wrapper*/
+.wrapper {
+  max-width: 1360px;
+  width: 85%;
+  margin: 0 auto;
+}
+
+.block {
+  display: block;
+}
+
+.none {
+  display: none;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+main {
+  animation: mainpopup 1s forwards;
+}
+
+@keyframes mainpopup {
+  0% {
+    display: none;
+  }
+  99% {
+    display: none;
+  }
+  100% {
+    display: block;
+  }
+}
+
+.welcome {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  background-color: #ddeeff;
+  animation: slide-up 2s ease-in 1s forwards;
+}
+
+.welcome figure {
+  width: 90px;
+}
+
+@media screen and (max-width: 767px) {
+  .welcome figure {
+    width: 70px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .welcome {
+    background-color: #e0efff;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 1;
+    z-index: 2;
+  }
+  99% {
+    opacity: 0;
+    z-index: 2;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+    z-index: -1;
+  }
+}
+
+.welcome-user {
+  animation: no-scroll 3s ease-in-out forwards;
+}
+
+@keyframes no-scroll {
+  0% {
+    overflow: hidden;
+  }
+  99% {
+    overflow: hidden;
+  }
+  100% {
+    overflow: auto;
+  }
+}
+
+header {
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  -ms-box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 767px) {
+  header {
+    padding: 15px 0;
+    position: fixed;
+    z-index: 2;
+    transition: 0.5s ease-in-out;
+  }
+  header.active {
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: none;
+  }
+}
+
+header .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+header h1 {
+  width: 90px;
+}
+
+@media screen and (max-width: 540px) {
+  header h1 {
+    width: 60px;
+  }
+}
+
+header .navbar li {
+  position: relative;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+header .navbar li a {
+  padding: 25px 10px;
+  color: #FFF;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 1024px) {
+  header .navbar li:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  header .navbar li:hover::before {
+    background-color: #facc00;
+  }
+}
+
+header .navbar li.active {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+header .navbar li.active::before {
+  background-color: #facc00;
+}
+
+header .navbar li::before {
+  content: " ";
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  z-index: 0;
+  top: auto;
+  right: auto;
+  bottom: 0;
+  left: 0;
+  background-color: transparent;
+  transition: 0.2s ease-in-out;
+}
+
+header .navbar li:last-child {
+  border-top-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+  transition: 0.3s ease-in-out;
+}
+
+header .navbar li:last-child.active {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+header .navbar li:last-child::before {
+  content: none;
+}
+
+header .navbar li:last-child a {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+  header .navbar {
+    width: 100%;
+    height: 100vh;
+    padding: 100px 0;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: auto;
+    bottom: auto;
+    left: 0;
+    background-color: #facc00;
+    clip-path: circle(0% at 100% 0);
+    transition: 0.6s ease-in-out;
+  }
+  header .navbar li {
+    display: block;
+    text-align: center;
+  }
+  header .navbar li a {
+    color: #333B50;
+  }
+  header .navbar li:last-child {
+    display: none;
+  }
+  header .navbar.active {
+    clip-path: circle(200% at 100% 0);
+  }
+}
+
+header .ellipsis {
+  text-indent: -9999px;
+}
+
+header .ellipsis::before {
+  content: "\f142";
+  padding: 2px;
+  font-family: "fontAwesome";
+  text-indent: 0;
+  float: right;
+  font-size: 15px;
+  color: #FFF;
+  transition: 0.3s ease-in-out;
+}
+
+.hamburger {
+  display: none;
+  width: 40px;
+  padding: 8px;
+  position: relative;
+  z-index: 5;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  margin-bottom: 5px;
+  display: block;
+  background-color: #FFF;
+  text-indent: -9999px;
+  transition: 0.3s ease-in-out;
+}
+
+.hamburger span:last-child {
+  margin: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .hamburger {
+    display: block;
+  }
+  .hamburger.active span {
+    background-color: #333B50;
+  }
+  .hamburger.active span:first-child {
+    transform: translateY(8px) rotate(135deg);
+  }
+  .hamburger.active span:last-child {
+    transform: translateY(-8px) rotate(-135deg);
+  }
+  .hamburger.active span:nth-child(2) {
+    transform: scale(0);
+  }
+}
+
+.social-links {
+  padding: 13px 10px;
+  border-radius: 50px;
+  display: none;
+  position: absolute;
+  z-index: 1;
+  top: 110%;
+  right: 6%;
+  bottom: auto;
+  left: auto;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.social-links.active {
+  display: block;
+}
+
+@media screen and (max-width: 767px) {
+  .social-links {
+    display: none;
+  }
+}
+
+.social-links li {
+  display: block;
+  padding-bottom: 7px;
+}
+
+.social-links li:last-child {
+  padding: 0;
+}
+
+.social-links a {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  position: relative;
+  transition: 0.3s ease-in-out;
+  text-indent: -9999px;
+}
+
+.social-links a::before {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  font-size: 15px;
+  font-family: 'fontAwesome';
+  transform: translateX(-50%) translateY(-50%);
+  text-indent: 0;
+  color: #FFF;
+  transition: 0.3s ease-in-out;
+}
+
+@media screen and (min-width: 1024px) {
+  .social-links a:hover {
+    -ms-box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.5);
+    -o-box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.social-links .facebook {
+  -webkit-background-image: linear-gradient(135deg, #1F2F98, #4ADEDE);
+  -moz-background-image: linear-gradient(135deg, #1F2F98, #4ADEDE);
+  -ms-background-image: linear-gradient(135deg, #1F2F98, #4ADEDE);
+  -o-background-image: linear-gradient(135deg, #1F2F98, #4ADEDE);
+  background-image: linear-gradient(135deg, #1F2F98, #4ADEDE);
+}
+
+.social-links .facebook::before {
+  content: "\f09a";
+}
+
+.social-links .instagram {
+  -webkit-background-image: linear-gradient(135deg, #240E8B, #F04393);
+  -moz-background-image: linear-gradient(135deg, #240E8B, #F04393);
+  -ms-background-image: linear-gradient(135deg, #240E8B, #F04393);
+  -o-background-image: linear-gradient(135deg, #240E8B, #F04393);
+  background-image: linear-gradient(135deg, #240E8B, #F04393);
+}
+
+.social-links .instagram::before {
+  content: "\f16d";
+}
+
+.social-links .twitter {
+  -webkit-background-image: linear-gradient(135deg, #205072, #56C596);
+  -moz-background-image: linear-gradient(135deg, #205072, #56C596);
+  -ms-background-image: linear-gradient(135deg, #205072, #56C596);
+  -o-background-image: linear-gradient(135deg, #205072, #56C596);
+  background-image: linear-gradient(135deg, #205072, #56C596);
+}
+
+.social-links .twitter::before {
+  content: "\f099";
+}
+
+.social-links .youtube {
+  -webkit-background-image: linear-gradient(135deg, #F04393, #F9C449);
+  -moz-background-image: linear-gradient(135deg, #F04393, #F9C449);
+  -ms-background-image: linear-gradient(135deg, #F04393, #F9C449);
+  -o-background-image: linear-gradient(135deg, #F04393, #F9C449);
+  background-image: linear-gradient(135deg, #F04393, #F9C449);
+}
+
+.social-links .youtube::before {
+  content: "\f0e1";
+}
