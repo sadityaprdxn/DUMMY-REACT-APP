@@ -1,7 +1,6 @@
 import React from 'react';
 import logo from './images/logo.png';
-import background from './images/chai.jpg'
-import './App.css';
+import './scss/App.scss';
 
 function App() {
   return (
@@ -20,7 +19,7 @@ function App() {
 						<span>bar</span>
           </div>
           
-          <ul class="navbar">
+          <ul className="navbar">
             <li className="active">
               <a href="#banner" title="Home" className="home-section">home</a>
             </li>
