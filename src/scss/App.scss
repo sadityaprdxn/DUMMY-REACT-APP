@@ -40,7 +40,7 @@ footer, header, hgroup, menu, nav, section {
 /* Force scrollbar */
 html {
   overflow-y: scroll;
-  background: url('../images/chai.jpg') 50% 50% no-repeat;
+  // background: url('../images/chai.jpg') 50% 50% no-repeat;
   background-size: cover;
 }
 
@@ -497,4 +497,5 @@ header .ellipsis::before {
   content: "\f0e1";
 }
 
+@import 'section/counter';
 @import 'section/footer'
